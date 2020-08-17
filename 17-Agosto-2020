@@ -1,3 +1,98 @@
 17-Agosto-2020
 
-Se realizó una instalación de PuTTY, el cual es un generador de claves SSH Y telnet, esto debido a que no contaba con OpenSSH que es el generador de claves SSH de Oracle.
+1:14 pm
+- Se realizó una instalación de PuTTY, el cual es un generador de claves SSH Y telnet, esto debido a que no contaba con OpenSSH que es el generador de claves SSH de Oracle.
+
+1:29 pm
+- Generé una llave pública y una llave privada desde PuTTY, y ambas se guardaron en el disco C en usuarios.
+	Private key : "KeyForOCI"
+	Public key : "PublicKeyForOCI"
+
+1:36 pm
+- Ingresé a la consola web de OCI, siguiendo una serie de instruccions por parte de la documentacion oficial, Ingresé al menú general > Red > Redes virtuales en la nube. En la parte inferior del menú en la sección: Ámbito de lista > Compartimiento, Seleccioné el único compartimiento disponible:  	
+
+omendozaworkspace21 (raíz)
+
+1:47 pm
+-Se creará la red virtual con las siguientes caracteristicas:
+
+RED VIRTUAL EN LA NUBE DE ORACLE (VCN)
+	Nombre: Test
+	Compartimiento: omendozaworkspace21 (raíz)
+	Etiquetas: VCN: VCN-2020-08-17T18:43:08
+	CIDR: 10.0.0.0/16
+	Etiqueta de DNS: Test
+	Nombre de dominio DNS: Test.oraclevcn.com
+
+SUBREDES
+Subred pública
+	Nombre de subred: Subred pública-Test
+	CIDR: 10.0.0.0/24
+	Nombre de lista de seguridad: Default Security List for Test
+	Nombre de tabla de rutas: Default Route Table for Test
+	Etiqueta de DNS: sub08171845550
+
+Subred privada
+	Nombre de subred: Subred privada-Test
+	CIDR: 10.0.1.0/24
+	Nombre de lista de seguridad: Lista de seguridad de subred privada-Test
+	Nombre de tabla de rutas: Tabla de rutas para subred privada-Test
+	Etiqueta de DNS: sub08171845551
+
+GATEWAYS
+
+Nombre							Tipo de Gateway 			Utilizado por
+Gateway de internet-Test		Gateway de internet 		Subred pública-Test
+Gateway de NAT-Test				Gateway de NAT 				Subred privada-Test
+Gateway de servicio-Test 		Gateway de servicio 		Subred privada-Test
+
+LISTAS DE SEGURIDAD
+
+Nombre: Default Security List for Test
+Nombre: Lista de seguridad para subred privada-Test
+
+TABLA DE RUTAS 
+Nombre: Default Route Table for Test
+Nombre: Tabla de rutas para subred privada-Test
+
+1:59 pm
+- Nube creada 
+	Nota: Cuando se vayan a crear instancias de producción debemos asegurarnos de crear listas de seguridad adecuadas y reglas de tabla de enrutamiento para restringir el tráfico de red a las instancias.
+
+
+2:04 pm
+- Lanzamiento de una instancia, click en menú general > recursos informaticos > instancias > crear instancia.
+	
+	Nombre: omm_instance
+
+2:30 pm
+- La instancia se encuentra en un estatus de ejecución, el siguiente paso es obtener la direccion IP pública, el siguiente paso es realizar una conexion a la instancia utilizando dirección IP y clave SSH, desafortunadamente solo contamos con la clave SSH pública.
+
+2:40 pm
+- Hubo una falla en la terminal de PuTTY, Supongo que se debe a que generé dos veces claves SSH y utilicé la pública de una, y la privada de otra, tal vez deba generar por tercera vez las claves, De cualquier forma, finalicé la instancia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
