@@ -1,0 +1,3 @@
+17-Agosto-2020
+
+Se realizó una instalación de PuTTY, el cual es un generador de claves SSH Y telnet, esto debido a que no contaba con OpenSSH que es el generador de claves SSH de Oracle.
